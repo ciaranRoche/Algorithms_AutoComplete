@@ -1,6 +1,12 @@
 package assignment;
 
 public class BruteAutocomplete implements AutoComplete {
+	  
+	/**
+	 * Initializes required data structures from arrays
+	 * @param terms Array of terms
+	 * @param weights Array of weights
+	**/
 
 	@Override
 	public double weightOf(String term) {
