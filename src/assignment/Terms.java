@@ -48,6 +48,10 @@ public class Terms{
 		}
 			}
 	
+	public void getTerms(){
+		
+	}
+	
 	public String toString(){
 		return "weight: " + weight + " term: " + term + "\n";
 	}
