@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import static assignment.Fixtures.terms;
 
-public class TermsTest {
+public class TermTest {
 
 	//tests creation of termsList object
 	@Test
 	public void testTermsList() throws Exception {
-		Terms termsList;
+		Term termsList;
 
-		termsList = new Terms();
+		termsList = new Term();
 		assertNotNull(termsList);
 
 	}

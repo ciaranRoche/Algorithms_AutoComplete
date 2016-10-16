@@ -6,28 +6,28 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Terms{
+public class Term{
 		
 	public String term;
 	public double weight;
 	
-	static ArrayList<Terms> termsList = new ArrayList<Terms>();
+	static ArrayList<Term> termsList = new ArrayList<Term>();
 	
 	public String pathname = "././data/wordList.txt";
 	private static Scanner inTerms;
 	
-	public Terms(){
+	public Term(){
 
 	}
 	
-	public Terms(double weight, String term){
+	public Term(double weight, String term){
 		this.weight = weight;
 		this.term = term;
 	}
 	
 	public static void main(String [] args) throws Exception{
 		readTerms();
-		System.out.println(termsList);
+		//System.out.println(termsList);
 	}
 	
 	public static void readTerms() throws IOException{
@@ -42,14 +42,18 @@ public class Terms{
 			
 			System.out.println(termTokens[0] +" "+ termTokens[1]);
 			
-			Terms list = new Terms(Double.parseDouble(termTokens[0]), termTokens[1]);
+			Term list = new Term(Double.parseDouble(termTokens[0]), termTokens[1]);
 			
 			termsList.add(list);
 		}
 			}
 	
-	public void getTerms(){
-		
+	public String getTerm(){
+		return term;
+	}
+	
+	public double getWeight(){
+		return weight;
 	}
 	
 	public String toString(){
