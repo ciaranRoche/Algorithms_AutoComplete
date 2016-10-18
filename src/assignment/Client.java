@@ -8,7 +8,9 @@ public class Client {
 	private static int k;
 
 	
-	public Client(){
+	public Client(String prefix, int k){
+		Client.prefix = prefix;
+		Client.k = k;
 	}
 	
 	public static void main(String[] args){

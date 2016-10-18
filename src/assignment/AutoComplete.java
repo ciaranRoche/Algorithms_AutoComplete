@@ -13,4 +13,5 @@ public interface AutoComplete{
     // If fewer than k matches, return all matching terms (in descending order
     // of weight).
     public Iterable<String> matches(String prefix, int k);
+
 }
