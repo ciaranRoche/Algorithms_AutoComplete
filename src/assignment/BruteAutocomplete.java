@@ -1,11 +1,14 @@
 package assignment;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class BruteAutocomplete implements AutoComplete {
 	  
 	Term[] term;
 	Client client;
+	
+	static ArrayList<String> matches = new ArrayList<String>();
 	
 	/**
 	 * Initializes required data structures from arrays
@@ -44,14 +47,24 @@ public class BruteAutocomplete implements AutoComplete {
 		}
 		return maxTerm;	
 	}
+	
 
+	
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 		//Iterator<Term> it = new Iterator<Term>(k, Term.weightOrder());
+		ArrayList<Term> list = new ArrayList<Term>();
+		Iterator<Term> it = list.iterator();
 		for(Term t : term){
-			if(t.getTerm().startsWith(prefix)) continue;
+			if(t.getTerm().startsWith(client.getPrefix())){
+				matches.add(t.getTerm());
+			}
 		}
-		return null;
+		
+		
+		return matches;
+		
+
 	}
 
 }
