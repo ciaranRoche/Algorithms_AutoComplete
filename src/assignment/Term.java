@@ -14,7 +14,6 @@ public class Term implements Comparable<Term>{
 	
 	static ArrayList<Term> termsList = new ArrayList<Term>();
 	
-	public String pathname = "././data/wordList.txt";
 	private static Scanner scanner;
 	
 	public Term(){
@@ -77,7 +76,7 @@ public class Term implements Comparable<Term>{
 	
 	
 	
-	public static Comparator<Term> WeightOrder(){
+	public static Comparator<Term> weightOrder(){
 		return new WeightOrder();
 	}
 	

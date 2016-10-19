@@ -1,5 +1,7 @@
 package assignment;
 
+import java.util.Iterator;
+
 public class BruteAutocomplete implements AutoComplete {
 	  
 	Term[] term;
@@ -21,6 +23,17 @@ public class BruteAutocomplete implements AutoComplete {
 	  }
 
 	@Override
+	public double weightOf(String terms) {
+		double termWeight = 0.0;
+		for (Term t : term) {
+			if (t.getWeight() > 0) {
+				termWeight = t.weight;
+			}
+		}
+		return termWeight;
+	}
+
+	@Override
 	public String bestMatch(String prefix) {
 		String maxTerm = "";
 		double maxWeight = -1;
@@ -34,14 +47,11 @@ public class BruteAutocomplete implements AutoComplete {
 
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
-		// TODO Auto-generated method stub
+		//Iterator<Term> it = new Iterator<Term>(k, Term.weightOrder());
+		for(Term t : term){
+			if(t.getTerm().startsWith(prefix)) continue;
+		}
 		return null;
-	}
-
-	@Override
-	public double weightOf(String term) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
