@@ -45,14 +45,15 @@ public class Client {
 	
 	
 	public String toString(){
-		return "Prefix:" + prefix + ", Number of wanted matches: " + getK();
+		//return "Prefix:" + prefix + ", Number of wanted matches: " + getK();
+		return String.format("%14.1f\t%s", k, prefix);
 	}
 	
 	public static void setPrefix(String prefix){
 		Client.prefix = prefix;
 	}
 	
-	public String prefix(){
+	public String getPrefix(){
 		return prefix;
 	}
 

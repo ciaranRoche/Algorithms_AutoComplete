@@ -2,21 +2,30 @@ package assignment;
 
 public class BruteAutocomplete implements AutoComplete {
 	  
-	Term[] terms;
+	Term[] term;
+	Client client;
 	
 	/**
 	 * Initializes required data structures from arrays
 	 * @param terms Array of terms
 	 * @param weights Array of weights
 	**/
-
+	
+	  public BruteAutocomplete(String[] terms, double[] weights) {
+			if (terms == null || weights == null)
+				throw new NullPointerException("At least one of the Arguements are Null");
+	    term = new Term[terms.length];
+	    for (int i = 0; i < terms.length; i++) {
+	      term[i] = new Term(weights[i], terms[i]);
+	    }
+	  }
 
 	@Override
 	public String bestMatch(String prefix) {
 		String maxTerm = "";
 		double maxWeight = -1;
-		for (Term t : terms){
-			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
+		for (Term t : term){
+			if(t.getWeight() > maxWeight && t.getTerm().startsWith(client.getPrefix())){
 				maxTerm = t.getTerm();
 			}
 		}

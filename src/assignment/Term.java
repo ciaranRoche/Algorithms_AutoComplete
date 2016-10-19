@@ -21,7 +21,7 @@ public class Term implements Comparable<Term>{
 
 	}
 	
-	public Term(double weight, String term){
+	public Term(double weight ,String term){
 		if(term == null){
 			throw new NullPointerException();
 		}
