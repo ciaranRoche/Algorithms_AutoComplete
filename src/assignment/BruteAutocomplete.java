@@ -32,6 +32,7 @@ public class BruteAutocomplete implements AutoComplete {
 		double maxWeight = -1.0;
 		for (Term t : termsList){
 			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
+				maxWeight = t.getWeight();
 				maxTerm = t.getTerm();
 				System.out.println(maxTerm);
 			}
