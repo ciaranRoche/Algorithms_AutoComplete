@@ -19,8 +19,8 @@ public class BruteAutocomplete implements AutoComplete {
 	public double weightOf(String terms) {
 		double termWeight = 0.0;
 		for (Term t : termsList) {
-			if (t.getWeight() > 0) {
-				termWeight = t.weight;
+			if (t.getWeight() > 0 && t.getTerm().startsWith(terms)) {
+				termWeight = t.getWeight();
 			}
 		}
 		return termWeight;
