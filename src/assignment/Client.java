@@ -67,12 +67,16 @@ public class Client {
 				System.out.println(brute.weightOf(prefix));
 				break;
 			case 2:
-				System.out.println("\nThe best match for " + getPrefix() + ": ");
+				System.out.println("\nThe best match for " + getPrefix() + " is: ");
 				System.out.println(brute.bestMatch(prefix));
 				break;
 			case 3:
-				brute.matches(prefix, k);
+				System.out.println("\nList of matches for " + getPrefix() + " is: ");
+				System.out.println(brute.matches(prefix, k));
+				//brute.matches(prefix, k);
 				break;
+			case 4:
+				System.out.println(term.getTermsList());
 			default:
 				System.out.println("Invalid option entered: " + option);
 				break;
@@ -89,6 +93,7 @@ public class Client {
 		System.out.println("   1) Weight of prefix.");
 		System.out.println("   2) Best Match of the prefix");
 		System.out.println("   3) List of Matchs of the prefix");
+		System.out.println("   4) Have a look at the list of words and weights");
 		System.out.println("-----------\n   0)Exit");
 		int choice = input.nextInt();
 		return choice;

@@ -27,10 +27,8 @@ public class Term{
 		while(scanner.hasNextLine()){
 			String termDetails = scanner.nextLine();
 			termDetails = termDetails.trim();
-			
+	
 			String[] termTokens = termDetails.split(delims);
-			
-			//System.out.println(termTokens[0] +" "+ termTokens[1]);
 			
 			Term list = new Term(Double.parseDouble(termTokens[0]), termTokens[1]);
 			
@@ -38,12 +36,12 @@ public class Term{
 		}
 			}
 	
-	//small test just to check every word is saved to list
-	public static void listSize(){
-		for(int i=0; i<getTermsList().size(); i++){
-			System.out.println(i);
-		}
-	}
+//	small test just to check every word is saved to list
+//	public static void listSize(){
+//		for(int i=0; i<getTermsList().size(); i++){
+//			System.out.println(i);
+//		}
+//	}
 	
 	public String getTerm(){
 		return term;

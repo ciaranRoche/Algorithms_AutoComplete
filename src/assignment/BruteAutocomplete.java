@@ -26,7 +26,6 @@ public class BruteAutocomplete implements AutoComplete {
 		for (Term t : termsList) {
 			if(t.getWeight() > termWeight && t.getTerm().startsWith(terms)){
 				termWeight = t.getWeight();
-				//System.out.println(termWeight);
 			}
 		}
 		return termWeight;
@@ -34,13 +33,10 @@ public class BruteAutocomplete implements AutoComplete {
 
 	@Override
 	public String bestMatch(String prefix){
-		//String maxTerm = "";
-		//double maxWeight = -1.0;
 		for (Term t : termsList){
 			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
 				maxWeight = t.getWeight();
 				maxTerm = t.getTerm();
-				//System.out.println(maxTerm);
 			}
 		}
 		return maxTerm;
@@ -49,31 +45,18 @@ public class BruteAutocomplete implements AutoComplete {
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 		String terms;
+		int count = 0;
+		ArrayList<String> matches = new ArrayList<String>();
 		for (Term t : termsList){
+			if(count <= k-1){
 			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
 				terms = t.getTerm();
-				System.out.println(terms);
+				matches.add(terms);
+				count++;
 				}
+			}
 		}
-	return null;
+	return matches;
 	}
 
-	
-//	@Override
-//	public Iterable<String> matches(String prefix, int k) {
-//		//Iterator<Term> it = new Iterator<Term>(k, Term.weightOrder());
-//		ArrayList<Term> list = new ArrayList<Term>();
-//		Iterator<Term> it = list.iterator();
-//		for(Term t : termsList){
-//			if(t.getTerm().startsWith(prefix)){
-//				//it = t.getTerm();
-//				matches.add(t.getTerm());
-//			}
-//		}
-//		
-//		
-//		return matches;
-//		
-//
-//	}
 }
