@@ -5,133 +5,68 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BruteAutocomplete implements AutoComplete {
-	  
+	
+	Term term;
+	
 	List<Term> termsList;
 	
-	static ArrayList<String> matches = new ArrayList<String>();
+	String maxTerm;
+	String terms;
+	double maxWeight = -1.0;
+	
+	
 	
 	  public BruteAutocomplete(List<Term> termsList) {
 		  this.termsList = termsList;
-
 	  }
 	  
 	@Override
 	public double weightOf(String terms) {
 		double termWeight = 0.0;
 		for (Term t : termsList) {
-			if (t.getWeight() > 0 && t.getTerm().startsWith(terms)) {
+			if(t.getWeight() > termWeight && t.getTerm().startsWith(terms)){
 				termWeight = t.getWeight();
+				//System.out.println(termWeight);
 			}
 		}
 		return termWeight;
 	}
 
 	@Override
-	public String bestMatch(String prefix) {
-		String maxTerm = "";
-		double maxWeight = -1.0;
+	public String bestMatch(String prefix){
+		//String maxTerm = "";
+		//double maxWeight = -1.0;
 		for (Term t : termsList){
 			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
 				maxWeight = t.getWeight();
 				maxTerm = t.getTerm();
-				System.out.println(maxTerm);
+				//System.out.println(maxTerm);
 			}
 		}
 		return maxTerm;
 	}
 	
-
-	
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
-		//Iterator<Term> it = new Iterator<Term>(k, Term.weightOrder());
-		ArrayList<Term> list = new ArrayList<Term>();
-		Iterator<Term> it = list.iterator();
-		for(Term t : termsList){
-			if(t.getTerm().startsWith(prefix)){
-				matches.add(t.getTerm());
-			}
+		String terms;
+		for (Term t : termsList){
+			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
+				terms = t.getTerm();
+				System.out.println(terms);
+				}
 		}
-		
-		
-		return matches;
-		
-
+	return null;
 	}
 
-}
-
-//package assignment;
-//
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.Iterator;
-//
-//public class BruteAutocomplete implements AutoComplete {
-//	  
-//	//Term[] term;
-//	//Term t;
-//	//Client client;
-//	
-//	Term term;
-//	
-//	ArrayList<String> matches = new ArrayList<String>();
-//	ArrayList<Term> readIn = new ArrayList<>();
-//	
-//	/**
-//	 * Initializes required data structures from arrays
-//	 * @param terms Array of terms
-//	 * @param weights Array of weights
-//	 * @throws IOException 
-//	**/
-//	
-////	  public BruteAutocomplete(String[] terms, double[] weights) {
-////			//if (terms == null || weights == null)
-////				//throw new NullPointerException("At least one of the Arguements are Null");
-////	    term = new Term[terms.length];
-////	    for (int i = 0; i < terms.length; i++) {
-////	      term[i] = new Term(weights[i], terms[i]);
-////	    }
-////	  }
-//	
-//	public BruteAutocomplete() throws IOException
-//	{
-//		term.readTerms();
-//		readIn = term.getArray();
-//	}
-//
-//	@Override
-//	public double weightOf(String terms) {
-//		double termWeight = 0.0;
-//		for (Term t : readIn) {
-//			if (t.getWeight() > 0) {
-//				termWeight = t.weight;
-//			}
-//		}
-//		return termWeight;
-//	}
-//
-//	@Override
-//	public String bestMatch(String prefix) {
-//		String maxTerm = "";
-//		double maxWeight = -1;
-//		for (Term t : readIn){
-//			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
-//				maxTerm += t.getTerm();
-//			}
-//		}
-//		return maxTerm;	
-//	}
-//	
-//
-//	
+	
 //	@Override
 //	public Iterable<String> matches(String prefix, int k) {
 //		//Iterator<Term> it = new Iterator<Term>(k, Term.weightOrder());
-//		ArrayList<Term> list = term.getArray();
+//		ArrayList<Term> list = new ArrayList<Term>();
 //		Iterator<Term> it = list.iterator();
-//		for(Term t : readIn){
+//		for(Term t : termsList){
 //			if(t.getTerm().startsWith(prefix)){
+//				//it = t.getTerm();
 //				matches.add(t.getTerm());
 //			}
 //		}
@@ -141,5 +76,4 @@ public class BruteAutocomplete implements AutoComplete {
 //		
 //
 //	}
-//
-//}
+}

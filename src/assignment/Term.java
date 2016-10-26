@@ -15,17 +15,7 @@ public class Term{
 	
 	private static Scanner scanner;
 	
-	public Term(){
-
-	}
-	
 	public Term(double weight ,String term){
-//		if(term == null){
-//			throw new NullPointerException();
-//		}
-//		if(weight < 0){
-//			throw new IllegalArgumentException();
-//		}
 		this.weight = weight;
 		this.term = term;
 	}

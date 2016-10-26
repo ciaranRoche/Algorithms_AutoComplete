@@ -16,7 +16,7 @@ public class TermTest {
 	@Test
 	public void testTermsList() throws Exception {
 		Term termsList;
-		termsList = new Term();
+		termsList = new Term(0, null);
 		assertNotNull(termsList);
 	}
 	

@@ -63,11 +63,12 @@ public class Client {
 		while(option != 0){
 			switch (option){
 			case 1: 
-				brute.weightOf(prefix);
+			    System.out.println("\nThe weight for " + getPrefix() + " is: ");
+				System.out.println(brute.weightOf(prefix));
 				break;
 			case 2:
 				System.out.println("\nThe best match for " + getPrefix() + ": ");
-				brute.bestMatch(prefix);
+				System.out.println(brute.bestMatch(prefix));
 				break;
 			case 3:
 				brute.matches(prefix, k);
@@ -88,6 +89,7 @@ public class Client {
 		System.out.println("   1) Weight of prefix.");
 		System.out.println("   2) Best Match of the prefix");
 		System.out.println("   3) List of Matchs of the prefix");
+		System.out.println("-----------\n   0)Exit");
 		int choice = input.nextInt();
 		return choice;
 	}
