@@ -24,7 +24,7 @@ public class BruteAutocomplete implements AutoComplete {
 	public double weightOf(String terms) {
 		double termWeight = 0.0;
 		for (Term t : termsList) {
-			if(t.getWeight() > termWeight && t.getTerm().startsWith(terms)){
+			if(t.getWeight() > termWeight && t.getTerm().toLowerCase().startsWith(terms)){
 				termWeight = t.getWeight();
 			}
 		}
@@ -34,7 +34,7 @@ public class BruteAutocomplete implements AutoComplete {
 	@Override
 	public String bestMatch(String prefix){
 		for (Term t : termsList){
-			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
+			if(t.getWeight() > maxWeight && t.getTerm().toLowerCase().startsWith(prefix)){
 				maxWeight = t.getWeight();
 				maxTerm = t.getTerm();
 			}
@@ -49,7 +49,7 @@ public class BruteAutocomplete implements AutoComplete {
 		ArrayList<String> matches = new ArrayList<String>();
 		for (Term t : termsList){
 			if(count <= k-1){
-			if(t.getWeight() > maxWeight && t.getTerm().startsWith(prefix)){
+			if(t.getWeight() > maxWeight && t.getTerm().toLowerCase().startsWith(prefix)){
 				terms = t.getTerm();
 				matches.add(terms);
 				count++;

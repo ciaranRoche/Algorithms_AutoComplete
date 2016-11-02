@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Term{
+public class Term implements Comparable<Term>{
 		
 	public String term;
 	public double weight;
@@ -61,6 +61,16 @@ public class Term{
 
 	public static void setTermsList(ArrayList<Term> termsList) {
 		Term.termsList = termsList;
+	}
+
+	/** 
+	 * methods for compatator
+	 */
+	@Override
+	public int compareTo(Term that) {
+		String s1 = this.term;
+		String s2 = that.term;
+		return s1.compareTo(s2);
 	}
 
 }

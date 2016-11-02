@@ -8,6 +8,7 @@ public class Client {
 	
 	static Term term;
 	static BruteAutocomplete brute;
+	//static TermComparator comp;
 	
 	private static String prefix;
 	private static int k;
@@ -20,11 +21,18 @@ public class Client {
 	public Client(){
 		input = new Scanner(System.in);
 		brute = new BruteAutocomplete(termsList);
+		//comp = new TermComparator();
 	}
 	
 
 	public static void main(String args[]){
 		Client app = new Client();
+		/**try {
+			comp.readTerms();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}**/
 
 		try {
 			term.readTerms();
@@ -38,7 +46,7 @@ public class Client {
 	public void run(){
 		try{
 		System.out.println("Please input a prefix in which you want to search for matchs:");
-		String inputP = input.nextLine();
+		String inputP = input.nextLine().toLowerCase();
 	    setPrefix(inputP);
 		}catch(Exception e){
 			System.out.println(e.getMessage());
