@@ -8,6 +8,14 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * BruteAutoTest class for AlgorithmsAssignment 1
+ * This test classes, tests the three methods in the brute auto complete class
+
+/**
+ * @author Ciaran Roche
+ * @version 03/11/2016
+ */
 public class BruteForceTest {
 	
 	public static ArrayList<Term> termsTest = new ArrayList<Term>();

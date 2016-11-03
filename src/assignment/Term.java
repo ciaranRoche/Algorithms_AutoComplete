@@ -1,10 +1,19 @@
 package assignment;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+/**
+ * Term Class for AlgorithmsAssignment 1
+ * This class reads in a .txt file and saves it to an arrayList
+ */
+
+/**
+ * @author Ciaran Roche
+ * @version 03/11/2016
+ */
 
 public class Term implements Comparable<Term>{
 		
@@ -15,11 +24,24 @@ public class Term implements Comparable<Term>{
 	
 	private static Scanner scanner;
 	
+	/**
+	 * Term Constructor
+	 * @param weight
+	 * @param term
+	 */
 	public Term(double weight ,String term){
 		this.weight = weight;
 		this.term = term;
 	}
 
+	/**
+	 * Read in terms method, using scanner
+	 * trims each line read,
+	 * splits each line
+	 * parses double "weight"
+	 * saves to arraylist termsList
+	 * @throws IOException
+	 */
 	public static void readTerms() throws IOException{
 		File terms = new File("././data/wordList.txt");
 		scanner = new Scanner(terms);
@@ -43,6 +65,10 @@ public class Term implements Comparable<Term>{
 //		}
 //	}
 	
+	/**
+	 * Getter and setters and toString methods
+	 * @return
+	 */
 	public String getTerm(){
 		return term;
 	}

@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * BruteAutoComplete Class for AlgorithmsAssignment 1
+ * The class implements AutoComplete Interface
+ */
+
+/**
+ * @author Ciaran Roche
+ * @version 03/11/2016
+ */
+
 public class BruteAutocomplete implements AutoComplete {
 	
 	Term term;
@@ -15,11 +25,22 @@ public class BruteAutocomplete implements AutoComplete {
 	double maxWeight = -1.0;
 	
 	
-	
+	/**
+	 * BruteAutocomplete constructor
+	 * @param termsList
+	 */
 	  public BruteAutocomplete(List<Term> termsList) {
 		  this.termsList = termsList;
 	  }
 	  
+	 /**
+	  * weight of method
+	  * declares termWeight as 0.0
+	  * searches every "t" type of term in termsList
+	  * if weight is greater then termweight, and the term start with string term,
+	  * termweight is set to that weight and returned, 
+	  * otherwise termweight of 0.0 is returned
+	  */
 	@Override
 	public double weightOf(String terms) {
 		double termWeight = 0.0;
@@ -30,7 +51,12 @@ public class BruteAutocomplete implements AutoComplete {
 		}
 		return termWeight;
 	}
-
+	
+	/**
+	 * bestMatch method
+	 * searches through termslist, for the biggest weight
+	 * returns biggest weight or null if no match is found
+	 */
 	@Override
 	public String bestMatch(String prefix){
 		for (Term t : termsList){
@@ -42,6 +68,11 @@ public class BruteAutocomplete implements AutoComplete {
 		return maxTerm;
 	}
 	
+	/**
+	 * matches method
+	 * searches termList for all matches to prefix
+	 * for "k" saves results to an arraylist of type string and returns arraylist
+	 */
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 		String terms;
